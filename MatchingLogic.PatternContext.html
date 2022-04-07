@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="coqdoc.css" rel="stylesheet" type="text/css" />
+<title>MatchingLogic.PatternContext</title>
+</head>
+
+<body>
+
+<div id="page">
+
+<div id="header">
+</div>
+
+<div id="main">
+
+<h1 class="libtitle">Library MatchingLogic.PatternContext</h1>
+
+<div class="code">
+<span class="id" title="keyword">From</span> <span class="id" title="var">Coq</span> <span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="http://coq.inria.fr/distrib/V8.14.0/stdlib//Coq.ssr.ssreflect.html#"><span class="id" title="library">ssreflect</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.14.0/stdlib//Coq.ssr.ssrfun.html#"><span class="id" title="library">ssrfun</span></a> <a class="idref" href="http://coq.inria.fr/distrib/V8.14.0/stdlib//Coq.ssr.ssrbool.html#"><span class="id" title="library">ssrbool</span></a>.<br/>
+<span class="id" title="keyword">Set Implicit Arguments</span>.<br/>
+
+<br/>
+<span class="id" title="keyword">From</span> <span class="id" title="var">stdpp</span> <span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span> <a class="idref" href="https://plv.mpi-sws.org/coqdoc/stdpp//stdpp.base.html#"><span class="id" title="library">base</span></a> <a class="idref" href="https://plv.mpi-sws.org/coqdoc/stdpp//stdpp.tactics.html#"><span class="id" title="library">tactics</span></a> <a class="idref" href="https://plv.mpi-sws.org/coqdoc/stdpp//stdpp.sets.html#"><span class="id" title="library">sets</span></a>.<br/>
+
+<br/>
+<span class="id" title="keyword">From</span> <span class="id" title="var">MatchingLogic.Utils</span><br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Utils.extralibrary.html#"><span class="id" title="library">extralibrary</span></a><br/>
+.<br/>
+
+<br/>
+<span class="id" title="keyword">From</span> <span class="id" title="var">MatchingLogic</span><br/>
+<span class="id" title="keyword">Require</span> <span class="id" title="keyword">Import</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Signature.html#"><span class="id" title="library">Signature</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Pattern.html#"><span class="id" title="library">Pattern</span></a><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Substitution.html#"><span class="id" title="library">Substitution</span></a><br/>
+.<br/>
+
+<br/>
+<span class="id" title="keyword">Section</span> <a id="with_signature" class="idref" href="#with_signature"><span class="id" title="section">with_signature</span></a>.<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Context</span> {<a id="0101b9beac487b383a5ba2a8f6922788" class="idref" href="#0101b9beac487b383a5ba2a8f6922788"><span class="id" title="binder">Σ</span></a> : <a class="idref" href="MatchingLogic.Signature.html#Signature"><span class="id" title="class">Signature</span></a>}.<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Record</span> <a id="PatternCtx" class="idref" href="#PatternCtx"><span class="id" title="record">PatternCtx</span></a> : <span class="id" title="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;{ <a id="pcEvar" class="idref" href="#pcEvar"><span class="id" title="projection">pcEvar</span></a> : <a class="idref" href="MatchingLogic.Signature.html#evar"><span class="id" title="method">evar</span></a> ;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="pcPattern" class="idref" href="#pcPattern"><span class="id" title="projection">pcPattern</span></a> : <a class="idref" href="MatchingLogic.Pattern.html#Pattern"><span class="id" title="inductive">Pattern</span></a>;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a id="is_linear_context" class="idref" href="#is_linear_context"><span class="id" title="definition">is_linear_context</span></a> (<a id="C:5" class="idref" href="#C:5"><span class="id" title="binder">C</span></a> : <a class="idref" href="MatchingLogic.PatternContext.html#PatternCtx"><span class="id" title="record">PatternCtx</span></a>) := <a class="idref" href="MatchingLogic.Pattern.html#count_evar_occurrences"><span class="id" title="definition">count_evar_occurrences</span></a> (<a class="idref" href="MatchingLogic.PatternContext.html#pcEvar"><span class="id" title="projection">pcEvar</span></a> <a class="idref" href="MatchingLogic.PatternContext.html#C:5"><span class="id" title="variable">C</span></a>) (<a class="idref" href="MatchingLogic.PatternContext.html#pcPattern"><span class="id" title="projection">pcPattern</span></a> <a class="idref" href="MatchingLogic.PatternContext.html#C:5"><span class="id" title="variable">C</span></a>) <a class="idref" href="http://coq.inria.fr/distrib/V8.14.0/stdlib//Coq.Init.Logic.html#6cd0f7b28b6092304087c7049437bb1a"><span class="id" title="notation">=</span></a> 1.<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a id="PC_wf" class="idref" href="#PC_wf"><span class="id" title="definition">PC_wf</span></a> <a id="C:6" class="idref" href="#C:6"><span class="id" title="binder">C</span></a> := <a class="idref" href="MatchingLogic.Pattern.html#well_formed"><span class="id" title="definition">well_formed</span></a> (<a class="idref" href="MatchingLogic.PatternContext.html#pcPattern"><span class="id" title="projection">pcPattern</span></a> <a class="idref" href="MatchingLogic.PatternContext.html#C:6"><span class="id" title="variable">C</span></a>).<br/>
+
+<br/>
+&nbsp;&nbsp;<span class="id" title="keyword">Definition</span> <a id="emplace" class="idref" href="#emplace"><span class="id" title="definition">emplace</span></a> (<a id="ctx:7" class="idref" href="#ctx:7"><span class="id" title="binder">ctx</span></a> : <a class="idref" href="MatchingLogic.PatternContext.html#PatternCtx"><span class="id" title="record">PatternCtx</span></a>) (<a id="p:8" class="idref" href="#p:8"><span class="id" title="binder">p</span></a> : <a class="idref" href="MatchingLogic.Pattern.html#Pattern"><span class="id" title="inductive">Pattern</span></a>) : <a class="idref" href="MatchingLogic.Pattern.html#Pattern"><span class="id" title="inductive">Pattern</span></a> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Substitution.html#free_evar_subst"><span class="id" title="definition">free_evar_subst</span></a> (<a class="idref" href="MatchingLogic.PatternContext.html#pcPattern"><span class="id" title="projection">pcPattern</span></a> <a class="idref" href="MatchingLogic.PatternContext.html#ctx:7"><span class="id" title="variable">ctx</span></a>) <a class="idref" href="MatchingLogic.PatternContext.html#p:8"><span class="id" title="variable">p</span></a> (<a class="idref" href="MatchingLogic.PatternContext.html#pcEvar"><span class="id" title="projection">pcEvar</span></a> <a class="idref" href="MatchingLogic.PatternContext.html#ctx:7"><span class="id" title="variable">ctx</span></a>).<br/>
+
+<br/>
+<span class="id" title="keyword">End</span> <a class="idref" href="MatchingLogic.PatternContext.html#with_signature"><span class="id" title="section">with_signature</span></a>.<br/>
+</div>
+</div>
+
+<div id="footer">
+<hr/><a href="index.html">Index</a><hr/>This page has been generated by <a href="http://coq.inria.fr/">coqdoc</a>
+</div>
+
+</div>
+
+</body>
+</html>
