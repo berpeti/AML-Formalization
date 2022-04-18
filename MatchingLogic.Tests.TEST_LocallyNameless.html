@@ -36,6 +36,7 @@
 
 <br/>
 <span class="id" title="keyword">Import</span> <span class="id" title="var">MatchingLogic.Syntax.Notations</span>.<br/>
+<span class="id" title="keyword">Import</span> <span class="id" title="var">MatchingLogic.Semantics.Notations</span>.<br/>
 <span class="id" title="keyword">Import</span> <span class="id" title="var">MatchingLogic.DerivedOperators_Syntax.Notations</span>.<br/>
 <span class="id" title="keyword">Import</span> <span class="id" title="var">MatchingLogic.IndexManipulation</span>.<br/>
 
@@ -47,6 +48,7 @@
 &nbsp;&nbsp;<span class="id" title="keyword">Instance</span> <a id="test_1.Symbols_eqdec" class="idref" href="#test_1.Symbols_eqdec"><span class="id" title="instance">Symbols_eqdec</span></a> : <a class="idref" href="https://plv.mpi-sws.org/coqdoc/stdpp//stdpp.base.html#EqDecision"><span class="id" title="abbreviation">EqDecision</span></a> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_1.Symbols"><span class="id" title="inductive">Symbols</span></a>.<br/>
  
 <br/>
+&nbsp;&nbsp;#[<span class="id" title="var">local</span>]<br/>
 &nbsp;&nbsp;<span class="id" title="keyword">Instance</span> <a id="test_1.signature" class="idref" href="#test_1.signature"><span class="id" title="instance">signature</span></a> : <a class="idref" href="MatchingLogic.Signature.html#Signature"><span class="id" title="class">Signature</span></a> :=<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;{| <a class="idref" href="MatchingLogic.Signature.html#variables"><span class="id" title="method">variables</span></a> := <a class="idref" href="MatchingLogic.SignatureHelper.html#StringMLVariables"><span class="id" title="definition">StringMLVariables</span></a> ;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="idref" href="MatchingLogic.Signature.html#symbols"><span class="id" title="method">symbols</span></a> := <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_1.Symbols"><span class="id" title="inductive">Symbols</span></a> ;<br/>
@@ -157,7 +159,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Instance</span> <a id="test_2.CustomElements_eqdec" class="idref" href="#test_2.CustomElements_eqdec"><span class="id" title="instance">CustomElements_eqdec</span></a> : <a class="idref" href="https://plv.mpi-sws.org/coqdoc/stdpp//stdpp.base.html#EqDecision"><span class="id" title="abbreviation">EqDecision</span></a> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.CustomElements"><span class="id" title="inductive">CustomElements</span></a>.<br/>
  
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Inductive</span> <a id="test_2.domain" class="idref" href="#test_2.domain"><span class="id" title="inductive">domain</span></a> : <span class="id" title="keyword">Type</span> :=<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Inductive</span> <a id="test_2.domain" class="idref" href="#test_2.domain"><span class="id" title="inductive">domain</span></a> : <span class="id" title="keyword">Set</span> :=<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;| <a id="test_2.dom_nat" class="idref" href="#test_2.dom_nat"><span class="id" title="constructor">dom_nat</span></a> (<a id="n:15" class="idref" href="#n:15"><span class="id" title="binder">n</span></a>:<a class="idref" href="http://coq.inria.fr/distrib/V8.14.0/stdlib//Coq.Init.Datatypes.html#nat"><span class="id" title="inductive">nat</span></a>)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;| <a id="test_2.dom_custom" class="idref" href="#test_2.dom_custom"><span class="id" title="constructor">dom_custom</span></a> (<a id="c:16" class="idref" href="#c:16"><span class="id" title="binder">c</span></a>:<a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.CustomElements"><span class="id" title="inductive">CustomElements</span></a>)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;.<br/>
@@ -196,7 +198,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Arguments</span> <a class="idref" href="MatchingLogic.Semantics.html#Domain"><span class="id" title="projection">Domain</span></a> : <span class="id" title="tactic">simpl</span> <span class="id" title="var">never</span>.<br/>
 
 <br/>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a id="test_2.M1_satisfies_definedness1" class="idref" href="#test_2.M1_satisfies_definedness1"><span class="id" title="lemma">M1_satisfies_definedness1</span></a> : <a class="idref" href="MatchingLogic.Semantics.html#satisfies_model"><span class="id" title="definition">satisfies_model</span></a> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.M1"><span class="id" title="definition">M1</span></a> (<a class="idref" href="MatchingLogic.Theories.Definedness_Syntax.html#axiom"><span class="id" title="definition">Definedness_Syntax.axiom</span></a> <a class="idref" href="MatchingLogic.Theories.Definedness_Syntax.html#AxDefinedness"><span class="id" title="constructor">Definedness_Syntax.AxDefinedness</span></a>).<br/>
+
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="id" title="keyword">Lemma</span> <a id="test_2.M1_satisfies_definedness1" class="idref" href="#test_2.M1_satisfies_definedness1"><span class="id" title="lemma">M1_satisfies_definedness1</span></a> : @<a class="idref" href="MatchingLogic.Semantics.html#satisfies_model"><span class="id" title="definition">satisfies_model</span></a> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.signature"><span class="id" title="instance">signature</span></a> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.M1"><span class="id" title="definition">M1</span></a> (<a class="idref" href="MatchingLogic.Theories.Definedness_Syntax.html#axiom"><span class="id" title="definition">Definedness_Syntax.axiom</span></a> <a class="idref" href="MatchingLogic.Theories.Definedness_Syntax.html#AxDefinedness"><span class="id" title="constructor">Definedness_Syntax.AxDefinedness</span></a>).<br/>
 
 <br/>
 &nbsp;&nbsp;<span class="id" title="keyword">End</span> <a class="idref" href="MatchingLogic.Tests.TEST_LocallyNameless.html#test_2.test_2"><span class="id" title="section">test_2</span></a>.<br/>

@@ -286,10 +286,6 @@
 <span class="id" title="keyword">End</span> <a class="idref" href="MatchingLogic.IndexManipulation.html#index_manipulation"><span class="id" title="section">index_manipulation</span></a>.<br/>
 
 <br/>
-<span class="id" title="keyword">Ltac</span> <span class="id" title="var">simpl_bevar_subst</span> := <span class="id" title="tactic">repeat</span> (<span class="id" title="tactic">rewrite</span> <a class="idref" href="MatchingLogic.SyntacticConstruct.html#simpl_bevar_subst'"><span class="id" title="definition">simpl_bevar_subst'</span></a>;[<span class="id" title="tactic">reflexivity</span>|]).<br/>
-<span class="id" title="keyword">Ltac</span> <span class="id" title="var">simpl_bsvar_subst</span> := <span class="id" title="tactic">repeat</span> (<span class="id" title="tactic">rewrite</span> <a class="idref" href="MatchingLogic.SyntacticConstruct.html#simpl_bsvar_subst'"><span class="id" title="definition">simpl_bsvar_subst'</span></a>;[<span class="id" title="tactic">reflexivity</span>|]).<br/>
-
-<br/>
 <span class="id" title="keyword">Tactic Notation</span> "solve_free_evars_inclusion" <span class="id" title="var">int_or_var</span>(<span class="id" title="var">depth</span>) :=<br/>
 &nbsp;&nbsp;<span class="id" title="tactic">simpl</span>;<br/>
 &nbsp;&nbsp;(<span class="id" title="tactic">do</span> ? [<span class="id" title="tactic">rewrite</span> <a class="idref" href="MatchingLogic.IndexManipulation.html#simpl_free_evars"><span class="id" title="definition">simpl_free_evars</span></a>/=]) ;<br/>
